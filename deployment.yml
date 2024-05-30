@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-docker-app
+  labels:
+    app: angular-docker-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: angular-docker-app
+  template:
+    metadata:
+      labels:
+        app: angular-docker-app
+    spec:
+      containers:
+      - name: angular-docker-app
+        image: nagesh0205/myangular-cicd:8
+        ports:
+        - containerPort: 8080
